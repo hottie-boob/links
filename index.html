@@ -10,22 +10,23 @@
 body{
 margin:0;
 padding:40px 20px;
-background-image:url("background.jpg");
-background-size:cover;
-background-position:center;
 font-family:sans-serif;
 color:white;
+background-size:cover;
+background-position:center;
+transition:background-image 1s ease-in-out;
 }
 
-/* section title */
+/* section titles */
+
 .section-title{
+font-size:22px;
 margin-top:40px;
 margin-bottom:15px;
-font-size:22px;
-letter-spacing:2px;
 }
 
-/* links container */
+/* buttons */
+
 .links{
 display:flex;
 flex-direction:column;
@@ -33,36 +34,35 @@ gap:15px;
 max-width:500px;
 }
 
-/* buttons */
 .links a{
 text-decoration:none;
 color:white;
 padding:18px;
-font-size:18px;
-border-radius:8px;
 text-align:center;
+border-radius:8px;
 
 background:rgba(255,255,255,0.15);
 backdrop-filter:blur(10px);
 
 border:1px solid rgba(255,255,255,0.2);
 
+font-size:18px;
 transition:0.3s;
 }
 
-/* hover animation */
 .links a:hover{
 transform:scale(1.04);
 background:rgba(255,255,255,0.25);
 }
 
-/* text animation */
+/* animated text */
+
 .links a span{
+animation:float 3s ease-in-out infinite;
 display:inline-block;
-animation:floatText 3s ease-in-out infinite;
 }
 
-@keyframes floatText{
+@keyframes float{
 0%{transform:translateY(0);}
 50%{transform:translateY(-4px);}
 100%{transform:translateY(0);}
@@ -73,34 +73,59 @@ animation:floatText 3s ease-in-out infinite;
 
 <body>
 
-<!-- PC SECTION -->
-
 <div class="section-title">PC</div>
 
 <div class="links">
 
 <a href="#"><span>Minecraft Mods</span></a>
-
 <a href="#"><span>PC Games</span></a>
-
-<a href="#"><span>Software Tools</span></a>
+<a href="#"><span>Tools</span></a>
 
 </div>
 
-
-<!-- MOBILE SECTION -->
 
 <div class="section-title">Mobile</div>
 
 <div class="links">
 
 <a href="#"><span>Mobile Games</span></a>
-
 <a href="#"><span>Android Mods</span></a>
-
 <a href="#"><span>APK Downloads</span></a>
 
 </div>
+
+
+<script>
+
+/* background images */
+
+const backgrounds = [
+"bg1.jpg",
+"bg2.jpg",
+"bg3.jpg",
+"bg4.jpg",
+"bg5.jpg"
+];
+
+let index = 0;
+
+function changeBackground(){
+
+document.body.style.backgroundImage = `url(${backgrounds[index]})`;
+
+index++;
+
+if(index === backgrounds.length){
+index = 0;
+}
+
+}
+
+changeBackground();
+
+setInterval(changeBackground,5000);
+
+</script>
 
 </body>
 </html>
